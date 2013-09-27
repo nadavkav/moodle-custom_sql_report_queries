@@ -1,3 +1,6 @@
+List of users in a course ###
+List of enrolled users in a Moodle 2.x course ###
+
 SELECT
 user2.firstname AS Firstname,
 user2.lastname AS Lastname,
