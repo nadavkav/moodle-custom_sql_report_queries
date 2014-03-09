@@ -25,3 +25,12 @@ SELECT m.name, COUNT(*)
 FROM mdl_course_modules AS cm
 JOIN mdl_modules AS m ON m.id = cm.module
 GROUP BY m.id
+
+# Active courses (not counting views)
+SELECT course, COUNT( * ) AS UsageCount
+FROM mdl_log
+WHERE ACTION NOT LIKE '%view%'
+GROUP BY course
+ORDER BY COUNT( * ) DESC
+# Set the bar for UsageCount hits
+HAVING UsageCount > 1000
