@@ -15,9 +15,9 @@ FROM mdl_role_assignments AS ra
 JOIN mdl_context AS ctx ON ra.contextid = ctx.id AND ctx.contextlevel = 50
 WHERE ra.roleid = 5 AND ctx.instanceid = c.id) AS "Students"
 FROM mdl_course AS c
-HAVING Students < 40
-#HAVING Students < 200 AND Students > 40
-#HAVING Students < 500 AND Students > 200
+HAVING Students > 0 AND Students =< 40
+#HAVING Students =< 200 AND Students > 40
+#HAVING Students =< 500 AND Students > 200
 #HAVING Students > 500 
 
 # Activities and Resources count in courses, system wide.
