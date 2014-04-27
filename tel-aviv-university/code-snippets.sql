@@ -17,6 +17,8 @@ JOIN mdl_user AS u ON u.id = ra.userid
 WHERE ra.roleid = 3 AND ctx.instanceid = c.id
 ) AS "Teachers in course"
 
+,MID( c.fullname, 35, LOCATE(  '</span><span lang="en"', c.fullname ) -35 ) AS "Course name"
+
 ,MID( cc.name, 35, LOCATE(  '</span><span lang="en"', cc.name ) -35 ) AS "Course Category"
 
 ,(SELECT MID( fcc.name, 35, LOCATE(  '</span><span lang="en"', fcc.name ) -35 ) 
