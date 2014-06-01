@@ -1,0 +1,8 @@
+mdl_log queries ###
+mdl_log queries ###
+
+SELECT COUNT(*)
+FROM mdl_log AS l
+JOIN mdl_course AS c ON l.course = c.id
+JOIN mdl_context AS context ON context.instanceid = c.id AND context.contextlevel = 50
+JOIN mdl_role_assignment AS ra ON ra.userid = l.userid AND ra.contextid = context.id
