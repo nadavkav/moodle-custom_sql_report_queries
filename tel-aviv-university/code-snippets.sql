@@ -27,3 +27,7 @@ WHERE ra.roleid = 3 AND ctx.instanceid = c.id
 
 ,(SELECT MID( scc.name, 35, LOCATE(  '</span><span lang="en"', scc.name ) -35 ) 
   FROM mdl_course_categories AS scc WHERE scc.id = MID( cc.path, 2 , LOCATE ('/', cc.path, 2) - 2) ) AS "Course Faculty"
+  
+,(SELECT concat(MID( u.firstname, 35, LOCATE(  '</span><span lang="en"', u.firstname ) -35 ), ' ', 
+			   MID( u.lastname, 35, LOCATE(  '</span><span lang="en"', u.lastname ) -35 ) ) 
+ FROM mdl_user AS u WHERE u.id = ra.userid) AS "שם הסטודנט" 
