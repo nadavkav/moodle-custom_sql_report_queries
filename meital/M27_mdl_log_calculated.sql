@@ -18,6 +18,12 @@ CREATE TABLE IF NOT EXISTS `mdl_log_calculated` (
 `course_path` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `mdl_log_calculated` ADD PRIMARY KEY (`id`);
+ALTER TABLE `mdl_log_calculated` ADD KEY `mdl_log_calc_cidrid_ix` (`course_id`,`user_roleid`);
+ALTER TABLE `mdl_log_calculated` 
+    ADD KEY `mdl_log_calc_userhit_ix` (`user_roleid`,`course_path`,`module_name`);
+ALTER TABLE `mdl_log_calculated` 
+    ADD KEY `mdl_log_calc_userviewhit_ix` (`course_id`,`user_roleid`,`module_action`);
 
 SELECT mdl_log + extra calculated data (testing)
 ================================================
